@@ -12,6 +12,8 @@ function App() {
     ]
   });
 
+  const [otherState, useOtherState] = useState("some other state");
+
   const switchNameHandler = () => {
     //console.log('called')
     //    this.state.persons[1].name = "Maddy";
@@ -24,12 +26,21 @@ function App() {
     });
   };
 
+  const style = {
+    backgroundColor: "white",
+    font: "inherit",
+    border: "5px solid cyan",
+    padding: "8px",
+    cursor: "pointer"
+  };
+
   return (
     <div className="App">
       <h1>Hello Folks</h1>
       <Person
         name={personState.persons[0].name}
         age={personState.persons[0].age}
+        cliick={switchNameHandler}
       >
         Welcome
       </Person>
@@ -45,7 +56,10 @@ function App() {
       >
         Welcome
       </Person>
-      <button onClick={switchNameHandler}>Switch Name</button>
+      <button style={style} onClick={switchNameHandler}>
+        Switch Name
+      </button>
+      <p>{otherState}</p>
     </div>
   );
 }
